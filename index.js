@@ -1,14 +1,13 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
-const markdown = require("inquirer")
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
-        name: 'appName',
+        name: 'projectName',
         message: 'What is the name of your project?',
     },
     {
@@ -59,7 +58,8 @@ const questions = [
 
 // TODO: Create a function to write README file
 function app() {
-    inquirer.prompt(questions).then(answers => {
+    inquirer
+        .prompt(questions).then(answers => {
         try {
             fs.writeFileSync("dist/README.md", generateMarkdown(answers))
             console.log("Success! Your file is located in the dist directory");
@@ -67,10 +67,21 @@ function app() {
             log(error.message)
         }
     })
-}
+};
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+    inquirer
+        .prompt(questions)
+        .then(function (data){
+            fs.writeFile('readMe.md', generateMarkdown(data), function(err) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log('Success!')
+            })
+        })
+}
 
 // Function call to initialize app
 init();
