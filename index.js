@@ -57,24 +57,24 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function app() {
-    inquirer
-        .prompt(questions).then(answers => {
-        try {
-            fs.writeFileSync("dist/README.md", generateMarkdown(answers))
-            console.log("Success! Your file is located in the dist directory");
-        } catch (error) {
-            log(error.message)
-        }
-    })
-};
+// function app() {
+//     inquirer
+//         .prompt(questions).then(answers => {
+//         try {
+//             fs.writeFileSync("dist/README.md", generateMarkdown(answers))
+//             console.log("Success! Your file is located in the dist directory");
+//         } catch (error) {
+//             log(error.message)
+//         }
+//     })
+// };
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
         .then(function (data){
-            fs.writeFile('readMe.md', generateMarkdown(data), function(err) {
+            fs.writeFile('./dist/readMe.md', generateMarkdown(data), function(err) {
                 if (err) {
                     console.log(err);
                 }
