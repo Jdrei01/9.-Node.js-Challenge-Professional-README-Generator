@@ -53,6 +53,7 @@ ${data.description}
 - [Usage](#usage)
 - [Contributing](#contributing)
 ${renderLicenseLink(data.licenses)}
+- [Questions](#questions)
 
 ## Installation
 ${data.installation}
@@ -67,6 +68,9 @@ ${renderLicenseSection(data.licenses)}
 
 ## Tests
 ${data.tests}
+
+## Questions
+For additional questions and information, please see the creator's GitHub profile here: [github.com/${data.github}/](https://github.com/Jdrei01) or reach out through email at ${data.email}.
 
 `;
 }
